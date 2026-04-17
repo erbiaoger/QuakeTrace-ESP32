@@ -64,6 +64,44 @@ Or use the provided scripts:
 ./upload.sh
 ```
 
+## Quick Setup on a New Machine
+
+If you want to compile this project quickly on another computer, use this flow:
+
+1. Install PlatformIO Core.
+
+```bash
+pipx install platformio
+# or: python -m pip install -U platformio
+```
+
+2. Clone the repo and enter it.
+
+```bash
+git clone git@github.com:erbiaoger/QuakeTrace-ESP32.git
+cd QuakeTrace-ESP32
+```
+
+3. Build firmware.
+
+```bash
+pio run
+```
+
+On first build, PlatformIO will auto-download toolchains/platform packages/libraries, so it can take longer once.
+
+4. (Optional) Upload and open serial monitor.
+
+```bash
+pio run -t upload --upload-port <YOUR_SERIAL_PORT>
+pio device monitor -b 115200 --port <YOUR_SERIAL_PORT>
+```
+
+Notes:
+
+- Ignored files like `.pio` and most `.vscode` cache/config files are generated locally and do not need to be committed.
+- The only shared VS Code file currently tracked is `.vscode/extensions.json`.
+
 ## Serial Command Reference
 
 Send commands in serial monitor at 115200 baud.
